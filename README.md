@@ -94,14 +94,14 @@ Open your browser and navigate to `http://localhost:4200`. The app will automati
 
 ### Running Unit Tests
 
-- AdminListComponent
-  . should load initial hotels on init
-  . should append new hotels on appendData
-  . should increase page number and call appendData on scroll
-- HotelService
-  . should return a specific hotel by ID
-  . should update a hotel correctly
-  . should delete a hotel correctly
+#### AdminListComponent
+  - should load initial hotels on init
+  - should append new hotels on appendData
+  - should increase page number and call appendData on scroll
+#### HotelService
+  - should return a specific hotel by ID
+  - should update a hotel correctly
+  - should delete a hotel correctly
 
 <div align="center">
   <img alt="Application image" src="https://vargaae.hu/images/projects/szallashu-test-2025-03-31-git.png" width="700" />
