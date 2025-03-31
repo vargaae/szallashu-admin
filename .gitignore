@@ -1,9 +1,9 @@
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
 # Angular Firebase Environment Variables
-/src/environments/**
-/src/environments/environment.ts
-/src/environments/environment.development.ts
+# /src/environments/**
+# /src/environments/environment.ts
+# /src/environments/environment.development.ts
 .env
 
 # Compiled output

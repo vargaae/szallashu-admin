@@ -60,15 +60,15 @@ To run this application locally, you need to have [Node.js](https://nodejs.org/)
 
 3. Set up environment variables:
 
-   - Create an `environment.ts` file in the 'src/environments' folder and configure the necessary API keys for Firebase Authentication.
+   - Create an `environment.ts` file in the `src/environments` folder and configure the necessary API keys for Firebase Authentication.
 
-   Example environment.ts`:
+   Example `environment.ts` / `environment.development.ts`:
 
    ```bash
    export const environment = {
    production: true,
    firebase : {
-    apiKey: your-firebase-api-key,
+    apiKey: "your-firebase-api-key",
     authDomain: "fir-demo-57c5b.firebaseapp.com",
     databaseURL: "https://fir-demo-57c5b-default-rtdb.firebaseio.com",
     projectId: "fir-demo-57c5b",
