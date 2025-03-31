@@ -8,7 +8,6 @@ You can test the deployed application [here](https://tourism-angular.web.app/)
   <img alt="Application image" src="https://vargaae.hu/images/projects/szallashu-2025-03-31_1.png" height="600" />
 </div>
 
-
 ## Table of Contents
 
 - [Features](#features)
@@ -28,11 +27,6 @@ You can test the deployed application [here](https://tourism-angular.web.app/)
 - Allows administrators to list their hotels
 - Allows administrators to edit or delete hotels
 
-## Tests with Karma 6.4.4
-
-- AdminListComponent
-- HotelService
-
 <div align="center">
   <img alt="Application image" src="https://vargaae.hu/images/projects/szallashu-2025-03-31_2.png" height="600" />
 </div>
@@ -45,11 +39,7 @@ You can test the deployed application [here](https://tourism-angular.web.app/)
 - [Angular Material](https://material.angular.io/) - UI component library
 - [Firebase](https://firebase.google.com/) - Backend as a service
 - [Sass](https://sass-lang.com/) - Styling
-- [ngx-infinite-scroll](https://www.npmjs.com/package/ngx-infinite-scroll)
-
-<div align="center">
-  <img alt="Application image" src="https://vargaae.hu/images/projects/szallashu-test-2025-03-31.png" width="700" />
-</div>
+- [ngx-infinite-scroll](https://www.npmjs.com/package/ngx-infinite-scroll) - Angular Infinite Scroll
 
 ## Installation
 
@@ -70,12 +60,24 @@ To run this application locally, you need to have [Node.js](https://nodejs.org/)
 
 3. Set up environment variables:
 
-   - Create an `.env` file in the root directory and configure the necessary API keys for map services or Firebase (if using).
+   - Create an `environment.ts` file in the 'src/environments' folder and configure the necessary API keys for Firebase Authentication.
 
-   Example `.env`:
+   Example environment.ts`:
 
    ```bash
-   FIREBASE_API_KEY=your-firebase-api-key
+   export const environment = {
+   production: true,
+   firebase : {
+    apiKey: your-firebase-api-key,
+    authDomain: "fir-demo-57c5b.firebaseapp.com",
+    databaseURL: "https://fir-demo-57c5b-default-rtdb.firebaseio.com",
+    projectId: "fir-demo-57c5b",
+    storageBucket: "fir-demo-57c5b.appspot.com",
+    messagingSenderId: "324370600645",
+    appId: "1:324370600645:web:372ec77189de0da28756ac",
+    measurementId: "G-DVJBQPJX6L"
+   }
+   };
    ```
 
 ## Running the Application
@@ -88,9 +90,22 @@ ng serve
 
 Open your browser and navigate to `http://localhost:4200`. The app will automatically reload if you make any changes to the source files.
 
-## Development
+## Development - Tests with [Karma Jasmine HTML Reporter](https://github.com/dfederm/karma-jasmine-html-reporter)
 
 ### Running Unit Tests
+
+- AdminListComponent
+  . should load initial hotels on init
+  . should append new hotels on appendData
+  . should increase page number and call appendData on scroll
+- HotelService
+  . should return a specific hotel by ID
+  . should update a hotel correctly
+  . should delete a hotel correctly
+
+<div align="center">
+  <img alt="Application image" src="https://vargaae.hu/images/projects/szallashu-test-2025-03-31-git.png" width="700" />
+</div>
 
 You can run unit tests using the following command:
 
@@ -122,15 +137,6 @@ src/
 ├── assets/               # Static assets such as images and icons
 ├── environments/         # Environment configurations (development, production)
 ```
-
-## Contributing
-
-Contributions are welcome! Please follow these steps to contribute:
-
-1. Fork the repository.
-2. Create a new branch with a descriptive name.
-3. Make your changes and commit them with clear messages.
-4. Push your branch and create a pull request.
 
 ## License
 
