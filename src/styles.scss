@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+/* !!! IF HEIGHT IS NOT SET TO 100% THEN THE INFINITE SCROLLER CANNOT SCROLL DOWN AFTER A PAGE !!! */
+html, body { height: 100%; }
+body {
+  /* !!! IF MARGIN IS 0 THEN THE INFINITE SCROLLER CANNOT SCROLL DOWN AFTER A PAGE !!! */
+  // margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #f5f5f5;
+}
+
+.back-button-container {
+  display: flex;
+  margin-bottom: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,40 @@
+<div class="back-button-container">
+  <a mat-button routerLink="">
+    <mat-icon>arrow_back_ios</mat-icon>
+    Vissza az Admin Hotel Listára
+  </a>
+</div>
+<div class="dashboard-container">
+  <mat-card class="dashboard__card" appearance="outlined">
+    <mat-card-content>
+      <img
+        mat-card-lg-image
+        src="https://themewagon.github.io/property/images/img_1.jpg"
+        alt="Hotel kép"
+        title="Hotel kép"
+      />
+    </mat-card-content>
+    <mat-card-title>Dashboard</mat-card-title>
+    @if (auth.currentUserSig()) {
+    <mat-card-header>
+      <div mat-card-avatar class="dashboard__header-image"></div>
+      <mat-card-title
+        >Felhasználónév: {{ auth.currentUserSig()?.username }}</mat-card-title
+      >
+      <mat-card-subtitle
+        >Email: {{ auth.currentUserSig()?.email }}</mat-card-subtitle
+      >
+    </mat-card-header>
+    }
+    <app-user
+      (addItemEvent)="addItem($event)"
+      (incrementCountEvent)="onClick($event)"
+      [(count)]="initialCount"
+      roleTitle="Admin"
+    />
+    <p>
+      {{ auth.currentUserSig()?.username }} {{ items.length }}-szer kattintott a
+      🐢 gombra
+    </p>
+  </mat-card>
+</div>

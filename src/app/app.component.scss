@@ -1,0 +1,192 @@
+@use "sass:map";
+
+@property --from-percent {
+  syntax: "<percentage>";
+  initial-value: 25%;
+  inherits: false;
+}
+@property --to-percent {
+  syntax: "<percentage>";
+  initial-value: 100%;
+  inherits: false;
+}
+
+$breakpoints: (
+  xs: 0px,
+  sm: 600px,
+  md: 810px,
+  lg: 1280px,
+  xl: 1920px,
+);
+$breakpoint-keys: map.keys($breakpoints);
+
+$width: "min";
+
+@mixin responsive($size, $width) {
+  $query: map.get($breakpoints, $size);
+  @media (#{$width}-width: #{$query}) {
+    @content;
+  }
+}
+
+.admin__container_mobile {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.admin__is-mobile .admin__toolbar {
+  position: fixed;
+  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  z-index: 2;
+}
+
+.admin__toolbar {
+  z-index: 2;
+  background-color: #4682b4;
+  --from-percent: 14.5%;
+  --to-percent: 135.4%;
+  background-image: linear-gradient(
+    90.1deg,
+    rgba(8, 81, 98, 1) var(--from-percent),
+    rgba(198, 231, 249, 1) var(--to-percent)
+  );
+  -webkit-transition: --from-percent 0.5s ease-in-out,
+    --to-percent 0.5s ease-in-out;
+  -moz-transition: --from-percent 0.5s ease-in-out,
+    --to-percent 0.5s ease-in-out;
+  -o-transition: --from-percent 0.5s ease-in-out, --to-percent 0.5s ease-in-out;
+  transition: --from-percent 0.5s ease-in-out, --to-percent 0.5s ease-in-out;
+
+  -webkit-box-shadow: 5px 5px 5px 0px rgba(128, 128, 128, 1);
+  -moz-box-shadow: 5px 5px 5px 0px rgba(128, 128, 128, 1);
+  box-shadow: 5px 5px 5px 0px rgba(128, 128, 128, 1);
+
+  color: aliceblue;
+  height: 50px;
+  margin-right: 0;
+  padding-right: 0;
+
+  .admin__toolbar_left-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .mat-mdc-icon-button .mdc-button__label,
+  .mat-mdc-icon-button mat-icon,
+  .mat-toolbar
+    > div.admin__toolbar_left-container
+    > div.admin__toolbar_leftmenu-container
+    > button {
+    color: aliceblue;
+  }
+
+  .mat-mdc-icon-button:hover mat-icon,
+  .mat-mdc-icon-button:focus mat-icon,
+  mat-icon-button:hover mat-icon,
+  mat-icon-button:focus mat-icon,
+  mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color {
+    color: lightblue;
+  }
+
+  .admin__toolbar_appname-container a {
+    text-decoration: none;
+    color: aliceblue;
+  }
+
+  h1.admin__appname {
+    margin-left: 8px;
+    font-style: italic;
+    font-weight: 500;
+
+    span {
+      color: lightblue;
+    }
+  }
+
+  .admin__toolbar_right-container {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.admin__toolbar:hover {
+  --from-percent: 15%;
+  --to-percent: 80%;
+}
+
+.admin__sidenav-container {
+  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+  causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+  flex: 1;
+}
+
+.mat-drawer {
+  max-width: 65dvw;
+}
+
+.mdc-list-item {
+  text-align: center;
+}
+
+.admin__is-mobile .admin__sidenav-container {
+  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+     `<body>` to be our scrolling element for mobile layouts. */
+  flex: 1 0 auto;
+}
+
+.mat-mdc-fab {
+  border-radius: 0 0 0 40px;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+  box-sizing: inherit;
+  position: relative;
+}
+
+// MEDIA QUERIES
+@include responsive(md, max) {
+  .admin__container_desktop {
+    display: none;
+  }
+  .admin__toolbar {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@include responsive(md, min) {
+  .admin__toolbar {
+    display: flex;
+    justify-content: space-around;
+    height: 70px;
+    margin: auto;
+    margin-right: 0;
+    padding-right: 0;
+
+    z-index: 2;
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(128, 128, 128, 1);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(128, 128, 128, 1);
+    box-shadow: 5px 5px 5px 0px rgba(128, 128, 128, 1);
+
+    h1.admin__appname {
+      font-weight: 500;
+      font-size: 2rem;
+    }
+
+    .admin__toolbar_right-container {
+      display: none;
+    }
+  }
+  .admin__toolbar:hover {
+    --from-percent: 93%;
+    --to-percent: 100%;
+  }
+}

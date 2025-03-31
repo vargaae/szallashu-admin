@@ -1,0 +1,81 @@
+@use "sass:map";
+
+$breakpoints: (
+  xs: 0px,
+  sm: 600px,
+  md: 810px,
+  lg: 1280px,
+  xl: 1920px,
+);
+
+$breakpoint-keys: map.keys($breakpoints);
+
+$width: "min";
+
+@mixin responsive($size, $width) {
+  $query: map.get($breakpoints, $size);
+  @media (#{$width}-width: #{$query}) {
+    @content;
+  }
+}
+
+.registration-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+
+  mat-card {
+    padding: 1rem;
+    text-align: center;
+    -webkit-box-shadow: 10px 10px 5px -6px rgba(153, 153, 153, 0.82);
+    -moz-box-shadow: 10px 10px 5px -6px rgba(153, 153, 153, 0.82);
+    box-shadow: 10px 10px 5px -6px rgba(153, 153, 153, 0.82);
+    max-width: 100%;
+  }
+}
+
+.registration-container mat-form-field + mat-form-field {
+  margin-left: 8px;
+  mat-card {
+    padding: 1rem;
+    text-align: center;
+  }
+}
+
+.progressIndicator,
+.loader {
+  text-align: center;
+  margin: 0 auto;
+}
+
+// MEDIA QUERIES
+@include responsive(sm, max) {
+  .registration-container {
+    width: 100%;
+    margin: 1rem 0;
+    mat-card {
+      width: 100%;
+      padding: 1rem 0;
+    }
+  }
+}
+@include responsive(sm, min) {
+  .registration-container {
+    mat-card {
+      min-width: 370px;
+      max-width: 500px;
+    }
+  }
+}
+@include responsive(md, min) {
+  .registration-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    mat-card {
+      min-width: 470px;
+      max-width: 500px;
+    }
+  }
+}

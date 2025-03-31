@@ -1,0 +1,61 @@
+<div class="registration-container">
+  <mat-card class="form-card">
+    <mat-card-title>Regisztráció</mat-card-title>
+
+    <form [formGroup]="signupForm" (ngSubmit)="signup()">
+      @if(errorMessage){
+      <mat-error>
+        {{ errorMessage }}
+      </mat-error>
+      }
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input
+            formControlName="email"
+            type="email"
+            matInput
+            placeholder="Email"
+          />
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Felhasználónév</mat-label>
+          <input
+            autocomplete="off"
+            formControlName="username"
+            type="text"
+            matInput
+            placeholder="felhasználónév"
+          />
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Jelszó</mat-label>
+          <input
+            autocomplete="off"
+            formControlName="password"
+            type="password"
+            matInput
+            placeholder="jelszó"
+          />
+        </mat-form-field>
+      </p>
+
+      <a mat-raised-button color="primary" (click)="signup()">Regisztráció</a>
+    </form>
+  </mat-card>
+</div>
+
+<div
+  class="progressIndicator"
+  [style.display]="isProgressVisible ? 'inline' : 'none'"
+>
+  <mat-progress-spinner
+    class="loader"
+    color="primary"
+    mode="indeterminate"
+  ></mat-progress-spinner>
+</div>

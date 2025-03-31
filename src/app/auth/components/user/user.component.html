@@ -1,0 +1,18 @@
+<p>Role: {{ roleTitle }}</p>
+<p>Bejelentkezések száma: {{ count() }}</p>
+<mat-card-actions>
+  @if (auth.currentUserSig() == null) {
+    <div class="nav-button-container">
+    <a mat-button routerLink="/registration">
+      <mat-icon>login</mat-icon>
+      Regisztráció
+    </a>
+  </div>
+  <a mat-button routerLink="/login">Bejelentkezés</a>
+
+  } @if (auth.currentUserSig()) {
+    <a mat-button (click)="logout()">Kijelentkezés</a>
+  }
+  <a mat-button (click)="addItem()">🐢 Gomb</a>
+  <a mat-button (click)="onClick()">Login -> Counter++</a>
+</mat-card-actions>

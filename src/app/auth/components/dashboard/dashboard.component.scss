@@ -1,0 +1,86 @@
+@use "sass:map";
+
+$breakpoints: (
+  xs: 0px,
+  sm: 600px,
+  md: 850px,
+  lg: 1280px,
+  xl: 1920px,
+);
+
+$breakpoint-keys: map.keys($breakpoints);
+
+$width: "min";
+
+@mixin responsive($size, $width) {
+  $query: map.get($breakpoints, $size);
+  @media (#{$width}-width: #{$query}) {
+    @content;
+  }
+}
+
+.dashboard-container {
+  display: block;
+  margin: .3rem 0;
+  text-align: center;
+  max-width: 95dvw;
+
+  mat-card {
+    max-width: 100%;
+    overflow: hidden;
+    -webkit-box-shadow: 10px 10px 5px -6px rgba(153, 153, 153, 0.82);
+    -moz-box-shadow: 10px 10px 5px -6px rgba(153, 153, 153, 0.82);
+    box-shadow: 10px 10px 5px -6px rgba(153, 153, 153, 0.82);
+  }
+
+  .dashboard__header-image {
+    background-image: url("https://thumbs.dreamstime.com/b/luxury-hotel-crown-key-letter-h-monogram-logo-laurel-elegant-beautiful-round-vector-emblem-sign-royalty-restaurant-97215514.jpg");
+    background-size: cover;
+  }
+
+  mat-card-header {
+    text-align: end;
+  }
+
+  mat-card-content {
+    padding: 0;
+    margin: 0;
+  }
+
+  mat-card-content img {
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+// MEDIA QUERIES
+@include responsive(sm, max) {
+  .admin__details_card {
+    img {
+      max-height: 20dvh;
+    }
+  }
+}
+@include responsive(sm, min) {
+  .dashboard-container {
+    mat-card {
+      min-width: 370px;
+      max-width: 500px;
+    }
+  }
+}
+@include responsive(md, min) {
+  .dashboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    mat-card {
+      min-width: 470px;
+      max-width: 500px;
+      mat-card-content img {
+        width: 100%;
+        height: 45dvh;
+      }
+    }
+  }
+}

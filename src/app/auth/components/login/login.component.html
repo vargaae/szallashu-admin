@@ -1,0 +1,57 @@
+<div class="back-button-container">
+  <a mat-button routerLink="">
+    <mat-icon>arrow_back_ios</mat-icon>
+    Vissza az Admin Hotel Listára
+  </a>
+</div>
+
+<div class="login-container">
+  <mat-card>
+    <mat-card-title>Bejelentkezés</mat-card-title>
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser()" type="">
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input
+            autocomplete="off"
+            formControlName="email"
+            type="email"
+            matInput
+            placeholder="username@email.com"
+            value="username@email.com"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Jelszó</mat-label>
+          <input
+            autocomplete="off"
+            formControlName="password"
+            type="password"
+            matInput
+            placeholder="admin1"
+            value="admin1"
+          />
+        </mat-form-field>
+        @if(errorMessage){
+        <mat-error>
+          {{ errorMessage }}
+        </mat-error>
+        }
+      </p>
+      <a mat-raised-button color="primary" (click)="loginUser()"
+        >Bejelentkezés</a
+      >
+    </form>
+  </mat-card>
+</div>
+<div
+  class="progressIndicator"
+  [style.display]="isProgressVisible ? 'inline' : 'none'"
+>
+  <mat-progress-spinner
+    class="loader"
+    color="primary"
+    mode="indeterminate"
+  ></mat-progress-spinner>
+</div>
+<app-registration />

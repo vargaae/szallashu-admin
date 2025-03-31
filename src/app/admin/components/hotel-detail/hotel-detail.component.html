@@ -1,0 +1,94 @@
+<div class="back-button-container">
+  <a mat-button routerLink="">
+    <mat-icon>arrow_back_ios</mat-icon>
+    Vissza az Admin Hotel Listára
+  </a>
+</div>
+@if(hotel) {
+<mat-card class="admin__details_card" appearance="outlined">
+  <div class="image-container"></div>
+  <img [src]="hotel.imageUrl" alt="Hotel Image" />
+  <mat-card-header>
+    <div mat-card-avatar class="admin__details_header-image"></div>
+    <mat-card-title>{{ hotel.name }}</mat-card-title>
+    <mat-card-subtitle>Budapest</mat-card-subtitle>
+  </mat-card-header>
+  <form [formGroup]="hotelForm" (ngSubmit)="onSubmit()">
+    @if (hotelForm.controls['pricePerNight'].invalid)
+    {
+    <mat-error>Nem megfelelő Ár bevitel</mat-error>
+    }
+    @if (hotelForm.controls['pricePerNight'].hasError('min'))
+    {
+    <mat-error>Túl alacsony Ár bevitel</mat-error>
+    } 
+    @if (hotelForm.controls['pricePerNight'].hasError('max'))
+    {
+    <mat-error>Túl magas Ár bevitel</mat-error>
+  } 
+    <mat-card-content>
+      <div class="hotel-card">
+        <mat-form-field appearance="outline">
+          <mat-label>Ár (Ft / fő / éj)</mat-label>
+          <input
+            autocomplete="off"
+            formControlName="pricePerNight"
+            type="number"
+            matInput
+            placeholder="Ár"
+            value="Ár"
+            [min]="10000"
+            [max]="1000000"
+          />
+        </mat-form-field>
+      </div>
+      <mat-form-field appearance="outline">
+        <mat-label>Szezonális nyitvatartás</mat-label>
+        <mat-date-range-input [rangePicker]="picker"
+        [min]="minDate"
+        [max]="maxDate"
+        >
+          <input
+            matStartDate
+            formControlName="openingDate"
+            placeholder="Start date"
+          />
+          <input
+            matEndDate
+            formControlName="closingDate"
+            placeholder="End date"
+          />
+        </mat-date-range-input>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-date-range-picker touchUi #picker></mat-date-range-picker>
+
+      </mat-form-field>
+      @if (hotelForm.controls['openingDate'].invalid)
+      {
+      <mat-error>Nem megfelelő Nyitó dátum</mat-error>
+      <mat-hint>Helyes formátum: {{ hotel.openingDate | date : "y. MM. dd."}}</mat-hint>
+      } 
+      @if (hotelForm.controls['closingDate'].invalid)
+      {
+      <mat-error>Nem megfelelő Záró dátum</mat-error>
+      <mat-hint>Helyes formátum: {{ hotel.closingDate | date : "y. MM. dd."}}</mat-hint>
+      } 
+      @if (hotelForm.controls['openingDate'].hasError('matStartDateInvalid'))
+      {
+      <mat-error>Nem megfelelő Nyitó dátum</mat-error>
+      } 
+      @if (hotelForm.controls['closingDate'].hasError('matEndDateInvalid'))
+      {
+      <mat-error>Nem megfelelő Záró dátum</mat-error>
+      }
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button type="submit">MENTÉS</button>
+      <a mat-button (click)="deleteHotel()">TÖRLÉS</a>
+    </mat-card-actions>
+  </form>
+</mat-card>
+}

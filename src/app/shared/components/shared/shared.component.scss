@@ -1,0 +1,10 @@
+  @property --from-percent {
+    syntax: "<percentage>";
+    initial-value: 25%;
+    inherits: false;
+  }
+  @property --to-percent {
+    syntax: "<percentage>";
+    initial-value: 100%;
+    inherits: false;
+  }

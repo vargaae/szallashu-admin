@@ -1,0 +1,90 @@
+<div
+  class="hotel-list-container"
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="500"
+  (scrolled)="onScroll()"
+  [scrollWindow]="true"
+>
+  @for (hotel of hotels$ | async; track hotel) { @defer (on viewport) {
+  <mat-card
+    class="admin__list__card"
+    appearance="outlined"
+    routerLink="/admin/hotel-detail/{{ hotel.id }}"
+  >
+    <mat-card-header>
+      <div class="image-container">
+        <img
+          mat-card-md-image
+          [ngSrc]="hotel.imageUrl"
+          alt="{{ hotel.imageUrl }}"
+          title="Hotel kép {{
+            hotel.imageUrl
+          }} - klikk a hotel adatainak szerkesztéséhez"
+          fill
+          priority
+          placeholder="https://themewagon.github.io/property/images/img_1.jpg"
+        />
+      </div>
+      <div class="details-container">
+        <mat-card-title-group>
+          <mat-card-title>{{ hotel.name }}</mat-card-title>
+          <mat-card-subtitle>Budapest</mat-card-subtitle>
+        </mat-card-title-group>
+        <p>Szezonális nyitvatartás</p>
+        <h4>{{ hotel.openingDate | date : "y. MMMM d." }} -</h4>
+        <h4>
+          {{ hotel.closingDate | date : "y. MMMM d." }}
+        </h4>
+        <h4 class="price">
+          {{
+            hotel.pricePerNight
+              | currency : "HUF" : "symbol" : "4.0-5" : "hu-HU"
+          }}
+        </h4>
+        <p class="price">1 fő, 1 éj, ellátás nélkül</p>
+        <a routerLink="/admin/hotel-detail/{{ hotel.id }}" mat-button
+          >SZERKESZTÉS</a
+        >
+      </div>
+    </mat-card-header>
+  </mat-card>
+  } @loading { Loading... } @placeholder {
+  <mat-card class="admin__list__card_blurred" appearance="outlined">
+    <mat-card-header>
+      <div class="image-container">
+        <img
+          mat-card-md-image
+          src="https://themewagon.github.io/property/images/img_1.jpg"
+          alt="{{ hotel.imageUrl }}"
+          title="Hotel image {{ hotel.id }}"
+          fill
+          priority
+        />
+      </div>
+      <div class="details-container">
+        <mat-card-title-group>
+          <mat-card-title>{{ hotel.name }}</mat-card-title>
+          <mat-card-subtitle>Budapest</mat-card-subtitle>
+        </mat-card-title-group>
+        <p>Szezonális nyitvatartás</p>
+        <h4>{{ hotel.openingDate | date : "y. MMMM d." }} -</h4>
+        <h4>
+          {{ hotel.closingDate | date : "y. MMMM d." }}
+        </h4>
+        <h4 class="price">
+          {{
+            hotel.pricePerNight
+              | currency : "HUF" : "symbol" : "4.0-5" : "hu-HU"
+          }}
+        </h4>
+        <p class="price">1 fő, 1 éj ellátás nélkül</p>
+        <a routerLink="/admin/hotel-detail/{{ hotel.id }}" mat-button
+          >SZERKESZTÉS</a
+        >
+      </div>
+    </mat-card-header>
+  </mat-card>
+  } }
+  <div *ngIf="isLoading">Loading...</div>
+</div>

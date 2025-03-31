@@ -1,0 +1,108 @@
+.admin__list__container {
+  // width: 100%;
+  // // .search-results {
+  //     height: 30rem;
+  // overflow: scroll;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // // }
+}
+
+.mat-drawer-content {
+  position: relative;
+  z-index: 1;
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.admin__list__card {
+  // // .data-card{
+
+  // width: 100%;
+  // padding: 5px;
+  // margin: 8px 0px;
+  // // width: 20%;
+  // border: 1px solid black;
+  // font-size: 30px;
+  // text-align: center;
+  // background-color: rgb(236, 234, 111);
+  // // }
+
+  max-width: 95dvw;
+  margin: 1rem 0;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-box-shadow: 10px 10px 5px -6px rgba(153, 153, 153, 0.82);
+  -moz-box-shadow: 10px 10px 5px -6px rgba(153, 153, 153, 0.82);
+  box-shadow: 10px 10px 5px -6px rgba(153, 153, 153, 0.82);
+
+  -webkit-filter: blur(0px);
+  filter: blur(0px);
+  -webkit-transition: 1.75s -webkit-filter cubic-bezier(0.71, 0, 0.33, 1.56);
+  -moz-transition: 1.75s -moz-filter cubic-bezier(0.71, 0, 0.33, 1.56);
+  -ms-transition: 1.75s -ms-filter cubic-bezier(0.71, 0, 0.33, 1.56);
+  -o-transition: 1.75s -o-filter cubic-bezier(0.71, 0, 0.33, 1.56);
+  transition: 1.75s -webkit-filter cubic-bezier(0.71, 0, 0.33, 1.56);
+  transition: all 1.75s cubic-bezier(0.71, 0, 0.33, 1.56) 0ms;
+}
+
+.admin__list__card_blurred {
+  width: 90dvw;
+
+  max-width: 400px;
+  margin: 1rem 0;
+  padding: 0;
+  overflow: hidden;
+  -webkit-box-shadow: 10px 10px 5px -6px rgba(153, 153, 153, 0.82);
+  -moz-box-shadow: 10px 10px 5px -6px rgba(153, 153, 153, 0.82);
+  box-shadow: 10px 10px 5px -6px rgba(153, 153, 153, 0.82);
+
+  /* Add the blur effect */
+  -webkit-filter: blur(20px);
+  filter: blur(20px);
+  -webkit-transition: 1.75s -webkit-filter cubic-bezier(0.71, 0, 0.33, 1.56);
+  -moz-transition: 1.75s -moz-filter cubic-bezier(0.71, 0, 0.33, 1.56);
+  -ms-transition: 1.75s -ms-filter cubic-bezier(0.71, 0, 0.33, 1.56);
+  -o-transition: 1.75s -o-filter cubic-bezier(0.71, 0, 0.33, 1.56);
+  transition: 1.75s -webkit-filter cubic-bezier(0.71, 0, 0.33, 1.56);
+  transition: all 1.75s cubic-bezier(0.71, 0, 0.33, 1.56) 0ms;
+}
+
+.mat-mdc-card-header {
+  display: flex;
+  padding: 0px 0px 0px 0px;
+}
+
+.mat-mdc-card-content:last-child {
+  padding-bottom: 0px;
+}
+
+.admin__list__header-image {
+  background-image: url("../../../../assets/hotel_logo.webp");
+  background-size: cover;
+  margin: 0.8rem;
+}
+
+.image-container {
+  position: relative;
+  width: 250px;
+  margin: 0px;
+  padding: 0;
+}
+
+.details-container {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.price {
+  text-align: end;
+}
+h4.price {
+  color: #ff4d01;
+  font-weight: 500;
+}

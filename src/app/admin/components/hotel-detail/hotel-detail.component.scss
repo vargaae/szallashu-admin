@@ -1,0 +1,77 @@
+@use "sass:map";
+
+$breakpoints: (
+  xs: 0px,
+  sm: 600px,
+  md: 810px,
+  lg: 1280px,
+  xl: 1920px,
+);
+
+$breakpoint-keys: map.keys($breakpoints);
+
+$width: "min";
+
+@mixin responsive($size, $width) {
+  $query: map.get($breakpoints, $size);
+  @media (#{$width}-width: #{$query}) {
+    @content;
+  }
+}
+
+.admin__details_card {
+  width: 95dvw;
+  margin: .3rem 0;
+  max-width: 500px;
+  text-align: center;
+  overflow: hidden;
+  -webkit-box-shadow: 10px 10px 5px -6px rgba(153, 153, 153, 0.82);
+  -moz-box-shadow: 10px 10px 5px -6px rgba(153, 153, 153, 0.82);
+  box-shadow: 10px 10px 5px -6px rgba(153, 153, 153, 0.82);
+  img {
+    height: 100%;
+    max-height: 30dvh;
+    width: auto;
+    object-fit: cover;
+  }
+}
+
+.admin__details_header-image {
+  background-image: url("../../../../assets/hotel_logo.webp");
+  background-size: cover;
+}
+
+.admin__details_form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.admin__details_full-width {
+  width: 100%;
+}
+
+mat-form-field, mat-date-range-input {
+  width: 100%;
+}
+
+mat-card-actions {
+  display: block;
+}
+
+// MEDIA QUERIES
+@include responsive(sm, max) {
+  .admin__details_card {
+    img {
+      max-height: 20dvh;
+    }
+  }
+}
+
+@include responsive(md, min) {
+  .admin__details_card {
+    img {
+      max-height: 45dvh;
+    }
+  }
+}

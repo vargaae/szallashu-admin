@@ -1,0 +1,48 @@
+nav {
+  display: flex;
+  justify-content: center;
+  border-radius: 6px;
+  color: white;
+
+  .nav-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    gap: 0.1dvw;
+  }
+
+  .nav-button-container {
+    display: flex;
+  }
+
+  .mat-mdc-button,
+  .mat-mdc-button .mdc-button__label,
+  .mat-mdc-button .mat-icon {
+    color: lightblue;
+  }
+  .mat-mdc-button {
+    border: transparent 1px solid;
+  }
+  .mat-mdc-button:hover {
+    border: lightblue 1px solid;
+  }
+  .mat-mdc-button .mat-icon:hover {
+    color: lightblue;
+  }
+}
+
+.nav__language_hu-image {
+  background-image: url("../../../../assets/hungarian.svg");
+  background-size: cover;
+  display: flex;
+  width: 25px;
+  height: 20px;
+  margin: 0.5rem;
+}
+.nav__language-en-image {
+  background-image: url("../../../../assets/english.svg");
+  background-size: cover;
+  padding: 0rem;
+  margin: 0.5rem;
+}

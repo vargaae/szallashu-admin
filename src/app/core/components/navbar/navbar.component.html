@@ -1,0 +1,35 @@
+<nav>
+  <div class="nav-container">
+    <div class="nav-button-container">
+      <a mat-button routerLink="">
+        <mat-icon>home</mat-icon>
+        Hotel Listaoldal
+      </a>
+    </div>
+    <div class="nav-button-container">
+      <a mat-button routerLink="/admin/hotel-detail/1">
+        <!-- <a mat-button routerLink="/admin/hotel-detail/:id"> -->
+        <mat-icon>hotel</mat-icon>
+        Hotel Végoldal
+      </a>
+    </div>
+    
+    @if (auth.currentUserSig() == null) {
+      <div class="nav-button-container">
+        <a mat-button routerLink="/login">
+          <mat-icon>person</mat-icon>
+        Bejelentkezés</a
+        >
+    </div>
+    
+  } @if (auth.currentUserSig()) {
+    <div class="nav-button-container">
+      <a mat-button routerLink="/dashboard">
+        <mat-icon>person</mat-icon>
+        {{ auth.currentUserSig()?.username }}
+      </a>
+    </div>
+  }
+  <div class="nav__language_hu-image"></div>
+  </div>
+</nav>
