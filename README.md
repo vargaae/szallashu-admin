@@ -14,9 +14,8 @@ You can test the deployed application [here](https://tourism-angular.web.app/)
 - [Technologies](#technologies)
 - [Installation](#installation)
 - [Running the Application](#running-the-application)
-- [Development](#development)
+- [Development - Tests](#development)
 - [Folder Structure](#folder-structure)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Features
@@ -90,9 +89,9 @@ ng serve
 
 Open your browser and navigate to `http://localhost:4200`. The app will automatically reload if you make any changes to the source files.
 
-## Development - Tests with [Karma Jasmine HTML Reporter](https://github.com/dfederm/karma-jasmine-html-reporter)
+## Development
 
-### Running Unit Tests
+### Tests with [Karma Jasmine HTML Reporter](https://github.com/dfederm/karma-jasmine-html-reporter) - Running Unit Tests
 
 #### AdminListComponent
   - should load initial hotels on init
