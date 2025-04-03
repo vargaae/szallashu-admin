@@ -30,9 +30,9 @@ $width: "min";
   box-shadow: 10px 10px 5px -6px rgba(153, 153, 153, 0.82);
   img {
     height: 100%;
-    max-height: 30dvh;
     width: auto;
     object-fit: cover;
+    object-position: top;
   }
 }
 
@@ -60,14 +60,6 @@ mat-card-actions {
 }
 
 // MEDIA QUERIES
-@include responsive(sm, max) {
-  .admin__details_card {
-    img {
-      max-height: 20dvh;
-    }
-  }
-}
-
 @include responsive(md, min) {
   .admin__details_card {
     img {

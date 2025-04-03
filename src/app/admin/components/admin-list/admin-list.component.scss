@@ -1,12 +1,12 @@
 .admin__list__container {
-  // width: 100%;
-  // // .search-results {
-  //     height: 30rem;
-  // overflow: scroll;
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
-  // // }
+  width: 100%;
+  .search-results {
+    height: 30rem;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .mat-drawer-content {
@@ -19,18 +19,6 @@
 }
 
 .admin__list__card {
-  // // .data-card{
-
-  // width: 100%;
-  // padding: 5px;
-  // margin: 8px 0px;
-  // // width: 20%;
-  // border: 1px solid black;
-  // font-size: 30px;
-  // text-align: center;
-  // background-color: rgb(236, 234, 111);
-  // // }
-
   max-width: 95dvw;
   margin: 1rem 0;
   padding: 0;
@@ -92,6 +80,10 @@
   width: 250px;
   margin: 0px;
   padding: 0;
+  img {
+    object-fit: cover;
+    object-position: bottom;
+  }
 }
 
 .details-container {

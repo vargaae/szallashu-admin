@@ -16,7 +16,7 @@ export class HotelService {
       pricePerNight: 10000 + Math.floor(Math.random() * 10000), // 10,000 - 20,000 Ft : price / person / night
       openingDate: new Date(2025, 2, 1),
       closingDate: new Date(2025, 7, 31),
-      imageUrl: `https://picsum.photos/400?random=${i + 1}`,
+      imageUrl: `https://picsum.photos/800?random=${i + 1}`,
     })
   );
 
@@ -26,7 +26,7 @@ export class HotelService {
   getHotelsData(page = 1, itemsPerPage = 50): Observable<Hotel[]> {
     const startIndex = (page - 1) * itemsPerPage;
     const endIndex = Math.min(startIndex + itemsPerPage, this.totalHotels);
-    return of([...this.hotels.slice(startIndex, endIndex)]).pipe(delay(100)); // Simulated network delay
+    return of([...this.hotels.slice(startIndex, endIndex)]).pipe(delay(10)); // Simulated network delay
   }
 
   //  Get Data by Hotel's ID
